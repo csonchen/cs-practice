@@ -1,0 +1,5 @@
+# packages
+/webpack-practice/node_modules/*
+
+# bundle
+/webpack-practice/dist/*
