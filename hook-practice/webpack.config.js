@@ -8,7 +8,7 @@ var basePath = __dirname
 module.exports = {
   context: path.join(basePath, 'src'),
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.ts', '.tsx', '.css']
   },
   entry: ['@babel/polyfill', './index.tsx'],
   output: {
@@ -36,7 +36,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        include: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: "[name]__[local]___[hash:base64:5]",
+              camelCase: true
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
