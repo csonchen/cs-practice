@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css3-move</title>
+  <style>
+    .part {
+      margin-top: 10px;
+    }
+
+    .part1 {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0ff;
+      animation: move 2s linear 3 alternate both;
+    }
+    @keyframes move {
+      0% {transform: translate(0, 0);}
+      100% {transform: translate(200px, 0);}
+    }
+
+    .part2 {
+      width: 40px;
+      height: 40px;
+      background: #0ff;
+      animation-name: rotate;
+      animation-duration: 2s;
+    }
+    @keyframes rotate {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="part1 part"></div>
+  <div class="part2 part"></div>
+</body>
+</html>

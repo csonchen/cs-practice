@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .test1 {
+      width: 90px;
+      height: 60px;
+      animation-name: skyset;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: step-start
+    }
+
+    @keyframes skyset {
+      0% {background: red;}
+      50% {background: blue;}
+      100% {background: yellow;}
+    }
+  </style>
+</head>
+<body>
+  <div class="test1"></div>
+</body>
+</html>
