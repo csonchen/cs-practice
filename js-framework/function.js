@@ -84,4 +84,14 @@
       return obj;
     }
   }
+
+  var property = function(key) {
+    return function(obj) {
+      return obj == null ? void 0 : obj[key]
+    }
+  }
+
+  var getLength = property('length')
+
+  
 })();
