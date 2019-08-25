@@ -1,6 +1,11 @@
 import * as React from 'react'
 import {Color} from './model/color'
 import {MemberTableComponent, HelloComponent, NameEditComponent, ColorBrowser, ColorPicker, SidebarComponent} from './components'
+import { Counter } from './function/count';
+import Counter2 from './function/count2';
+import { Counter4 } from './function/count4';
+import { Counter5 } from './function/count5';
+import { Counter6 } from './function/count6';
 
 export const App = () => {
   const [name, setName] = React.useState('defaultName')
@@ -47,6 +52,21 @@ export const App = () => {
       <div style={{float: 'right'}}>
         <button onClick={() => setVisible(!isVisible)}>toggle sidebar</button>
       </div>
+
+      <hr></hr>
+      <Counter></Counter>
+
+      <hr></hr>
+      <Counter2></Counter2>
+
+      <hr></hr>
+      <Counter4></Counter4>
+      
+      <hr></hr>
+      <Counter5></Counter5>
+      
+      <hr></hr>
+      <Counter6></Counter6>
     </>
   )
 }

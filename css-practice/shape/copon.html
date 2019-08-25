@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style rel="stylesheet">
+  .test1 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 50px 50px, transparent 10px, #00adb5 0);
+    margin-bottom: 10px;
+  }
+
+  .test2 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to right, #00adb5, #00adb5);
+    margin-bottom: 10px;
+  }
+  .test3 {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin-bottom: 10px;
+    background: radial-gradient(circle at 0 50px, transparent 10px, #00adb5 0) top left/100px 100% no-repeat;
+  }
+  .test4 {
+    width: 300px;
+    height: 100px;
+    position: relative;
+    background: #00adb5;
+    margin-bottom: 10px;
+  }
+  .test4::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    bottom: -5px;
+    background-image: linear-gradient(to right, #00adb5 5px, transparent 5px, transparent),
+    radial-gradient(10px circle at 10px 5px, transparent 5px, #00adb5 5px);
+    background-size: 15px 5px;
+  }
+  </style>
+</head>
+<body>
+  <div class="test1"></div>
+  <div class="test2"></div>
+  <div class="test3"/>
+  <div class="test4"></div>
+</body>
+</html>
