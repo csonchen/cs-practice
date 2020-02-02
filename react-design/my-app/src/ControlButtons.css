@@ -1,0 +1,9 @@
+.control-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.control-btn:nth-child(1) {
+    margin-right: 50px;
+}
