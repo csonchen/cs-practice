@@ -3,6 +3,7 @@ class Node {
     this.value = value
     this.left = null
     this.right = null
+    this.size = 1
   }
 }
 
@@ -137,17 +138,61 @@ class BST {
     return this._getMax(node.right)
   }
 
+  floor(v) {
+    let node = this._floor(this.root, v)
+    return node ? node.value : null
+  }
+
+  _floor(node, v) {
+    if (!node) return null
+
+    if (node.value == v) return node
+
+    if (node.value > v) {
+      return this._floor(node.left, v)
+    }
+
+    let right = this._floor(node.right, v)
+    if (right) {
+      return right
+    }
+    return node
+  }
+
+  _getSize(node) {
+    return node ? node.size : 0
+  }
+
   _addChild(node, v) {
     if (!node) {
-      this.size++
       return new Node(v)
     }
 
     if (v < node.value) {
+      node.size++
       node.left = this._addChild(node.left, v)
     } else if (v > node.value) {
+      node.size++
       node.right = this._addChild(node.right, v)
     }
+    return node
+  }
+
+  select(k) {
+    let node = this._select(this.root, k)
+    console.log(node)
+    return node ? node.value : null
+  }
+  _select(node, k) {
+    if (!node) return null
+    // 先获取左子树下有几个节点
+    let size = node.left ? node.left.size : 0
+    // 判断 size 是否大于 k
+    // 如果大于 k，代表所需要的节点在左节点
+    if (size > k) return this._select(node.left, k)
+    // 如果小于 k，代表所需要的节点在右节点
+    // 注意这里需要重新计算 k，减去根节点除了右子树的节点数量
+    if (size < k) return this._select(node.right, k - size - 1)
     return node
   }
 }
@@ -166,5 +211,8 @@ bst.addNode(7)
 // bst.mid(bst.root)
 // bst.last(bst.root)
 // bst.breadthFind()
-console.log(bst.getMax())
-console.log(bst.getMin())
+// console.log(bst.getMax())
+// console.log(bst.getMin())
+// console.log(bst.floor(4.3))
+
+console.log(bst.select(5))
