@@ -45,3 +45,41 @@ function fun3(points) {
   }
   return cnt
 }
+
+function fun4(prices) {
+  if (prices.length == 0) return 0
+
+  let soFarMin = prices[0]
+  let max = 0
+  for (let i = 1; i < n; i++) {
+    if (prices[i] < soFarMin) {
+      soFarMin = prices[i]
+    } else {
+      max = Math.max(max, prices[i] - soFarMin)
+    }
+  }
+  return max
+}
+
+function fun5(prices) {
+  let profit = 0
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] - prices[i - 1] > 0) {
+      profit += prices[i] - prices[i - 1]
+    }
+  }
+  return profit
+}
+
+function isSubString(s, t) {
+  let i = 0, j = 0
+
+  while(i < s.length && j < t.length) {
+    if (s.charAt(i) == target.charAt(j)) {
+      j++
+    }
+    i++
+  }
+  return j == t.length
+}
+
